@@ -38,32 +38,7 @@ object Hoteles  {
       ,col("e.id").equalTo(col("r.id"))
       ,"left_outer").select("name","city_hotel","revenue").sort(col("revenue").desc).show(200, false)
 
-
-    /*
-    val res = drinksDF.as("d").join(suppliersDF.as("s"),
-      col("d.país").equalTo(col("s.país"))
-      ,"left_outer")
-
-    res.filter(col("bebidas").contains(col("tipo")))
-      .select("Marca","Distribuidor")
-      .show(1000, false)
-
-    val res2 = drinksDF.as("d").join(suppliersDF.as("s"),
-      col("d.país").equalTo(col("s.país"))
-      ,"left_outer")
-
-    res2.filter(filterByDrink(col("tipo"), col("bebidas")))
-      .select("Marca","Distribuidor")
-      .show(1000, false)*/
-
   }
-
-  /*val filterBySpain = udf ((tipo:String, bebidas: String) => {
-    (tipo, bebidas) match {
-      case (s1: String, s2: String) =>  s2.contains(s1)
-      case _ => false
-    }
-  })*/
 
   private def readCsvFile(spark: SparkSession, src: String) = {
     spark.read
